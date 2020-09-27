@@ -1,0 +1,190 @@
+.GetStarted__container {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgb(242, 244, 248);
+  font-family: "Inter", sans-serif;
+}
+
+.GetStarted__container code,
+a,
+strong {
+  color: #504a5e;
+}
+
+.GetStarted__text {
+  padding: 20px;
+  width: 40vw;
+}
+.GetStarted__tutorial {
+  width: 40vw;
+}
+
+.GetStarted__logo {
+  width: 60px;
+  height: 60px;
+  margin: 20px 0px;
+}
+
+.GetStarted__text-title {
+  font-size: 48px;
+  width: 60%;
+  font-weight: 900;
+  margin-top: 10px;
+  color: #000000;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+.GetStarted__text-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 15px 0px;
+  color: #869191;
+}
+.GetStarted__text-subtitle .icon {
+  color: #8650fa;
+  margin-right: 10px;
+  font-weight: 700;
+}
+.GetStarted__tutorial-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px 0px;
+  color: #292930;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+}
+.GetStartedCard__card {
+  border: 2px solid rgba(0, 0, 0, 0.04);
+  margin: 10px 0px;
+}
+.card {
+  border-radius: 10px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  margin: 20px 0px;
+}
+.GetStartedCard__title {
+  padding: 15px 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  color: #869191;
+  cursor: pointer;
+}
+
+.GetStartedCard__title-open {
+  color: #292930;
+}
+
+.GetStartedCard__title-number {
+  text-align: center;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid #d8e2e2;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.GetStartedCard__title-toggle {
+  text-align: center;
+  padding-left: 20px;
+  font-size: 20px;
+  color: #292930;
+  cursor: pointer;
+  margin-left: auto;
+}
+.GetStartedCard__children {
+  padding: 35px 40px;
+  padding-top: 10px;
+}
+
+.GetStartedCard__subtitle {
+  color: #869191;
+}
+
+.inset-card {
+  box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+    inset -3px -3px 6px 0px #fff;
+  border-radius: 10px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  padding: 10px 25px;
+  font-size: 12px;
+}
+
+.GetStartedCard__inset-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: space-between;
+  margin-top: 20px;
+}
+.icon-success {
+  color: #00d1b2;
+  font-size: 17px;
+  font-weight: 500;
+}
+.GetStartedCard__icon-success {
+  padding-left: 20px;
+  margin-left: auto;
+}
+.success-tag {
+  background-color: #3de9cf50;
+  color: #076456;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  width: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: flex-start;
+}
+.GetStartedCard__success-tag {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.GetStartedCard__logout {
+  background-color: #f0d6db;
+  color: #cc0f35;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  width: fit-content;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.GetStartedCard__list li {
+  padding: 10px 0px;
+}
+
+.GetStartedCard__card-button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 25px;
+  width: fit-content;
+  margin: 0px;
+  margin-top: 20px;
+  color: #000000;
+}
+.GetStartedCard__card-button a {
+  text-decoration: none !important;
+  color: #000000 !important;
+}
