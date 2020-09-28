@@ -1,0 +1,81 @@
+.Logo__container {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  font-family: "Inter", sans-serif;
+}
+.Logo__container a {
+  text-decoration: none;
+}
+.card-button {
+  border-radius: 8px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.06), -4px -4px 8px 0px #fff;
+}
+
+.Logo__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 140px;
+}
+
+.Logo__item {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Logo__logo {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+}
+
+.Logo__plus {
+  font-size: 20px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.2);
+}
+.Logo__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.Logo__card-menu {
+  margin-top: 15px;
+  cursor: pointer;
+}
+.Logo__card-menu a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 40px;
+}
+.Logo__text {
+  font-size: 13px;
+  margin-left: 5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 13px;
+}
+.Logo__text a {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.Logo__menu-hover {
+  opacity: 1;
+}

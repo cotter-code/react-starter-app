@@ -34,14 +34,17 @@ function HomePage() {
   const [step, setstep] = useState(0);
 
   useEffect(() => {
-    if (!isLoading && step === 0) {
+    if (
+      (!isLoading || !COTTER_API_KEY_ID || COTTER_API_KEY_ID.length <= 36) &&
+      step <= 1
+    ) {
       if (isLoggedIn) {
         setstep(3);
       } else {
         setstep(1);
       }
     }
-  }, [isLoading, isLoggedIn]);
+  }, [isLoading, isLoggedIn, step]);
 
   const toggleStep = (clickedStep) => {
     if (step === clickedStep) {
@@ -58,12 +61,21 @@ function HomePage() {
       <div className="GetStarted__text">
         <img
           className="GetStarted__logo"
-          src={"https://www.cotter.app/assets/cotter_logo.png"}
+          src={
+            "https://storage.googleapis.com/cotter/assets/cotter_logo_round.svg"
+          }
           alt="Logo"
         ></img>
         <div className="GetStarted__text-title">Cotter Starter Template</div>
         <div className="GetStarted__text-subtitle">
-          <span className="icon">&#10003;</span>Pre-built Login Pages
+          <span className="icon">&#10003;</span>Pre-built Login Pages using{" "}
+          <a
+            href="https://www.cotter.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cotter
+          </a>
         </div>
         <div className="GetStarted__text-subtitle">
           <span className="icon">&#10003;</span>Authentication State Management
@@ -100,15 +112,15 @@ function HomePage() {
             , create a project, and <strong>paste your API Key ID</strong> to{" "}
             <code>src/apiKeys.js</code>
           </div>
-          <div className="inset-card GetStartedCard__inset-card">
+          <div className="inset-button GetStartedCard__inset-button">
             <code>COTTER_API_KEY_ID = {COTTER_API_KEY_ID}</code>
-            {COTTER_API_KEY_ID && (
+            {COTTER_API_KEY_ID?.length === 36 && (
               <span className="icon-success GetStartedCard__icon-success">
                 &#10003;
               </span>
             )}
           </div>
-          {
+          {COTTER_API_KEY_ID?.length === 36 && (
             <div
               className="success-tag GetStartedCard__success-tag"
               onClick={nextStep}
@@ -118,7 +130,7 @@ function HomePage() {
                 →
               </span>
             </div>
-          }
+          )}
         </GetStartedCard>
 
         <GetStartedCard
@@ -129,8 +141,8 @@ function HomePage() {
         >
           <div className="GetStartedCard__subtitle">
             This Starter Template includes several login page templates for you
-            to use. They're available in <code>pages/login</code>,{" "}
-            <code>pages/login</code>.
+            to use. They're available in <code>pages/loginGift</code> and{" "}
+            <code>pages/loginClassic</code>.
             <br />
             <br />
             <strong>Import the one that you like</strong> into{" "}
@@ -173,7 +185,7 @@ function HomePage() {
             <strong>come back to this step</strong> to see the authentication
             state and user info.
           </div>
-          <div className="inset-card GetStartedCard__inset-card">
+          <div className="inset-button GetStartedCard__inset-button">
             <pre>
               <code>
                 {`const {isLoggedIn, user} = useContext(CotterContext);`}
@@ -208,7 +220,7 @@ function HomePage() {
             To logout, you just need to call the <code>logout</code> function
             provided by <code>CotterProvider</code>.
           </div>
-          <div className="inset-card GetStartedCard__inset-card">
+          <div className="inset-button GetStartedCard__inset-button">
             <pre>
               <code>
                 {`const {isLoggedIn, logout} = useContext(CotterContext);`}

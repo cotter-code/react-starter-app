@@ -114,7 +114,7 @@ strong {
   color: #869191;
 }
 
-.inset-card {
+.inset-button {
   box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
     inset -3px -3px 6px 0px #fff;
   border-radius: 10px;
@@ -125,7 +125,7 @@ strong {
   font-size: 12px;
 }
 
-.GetStartedCard__inset-card {
+.GetStartedCard__inset-button {
   display: flex;
   flex-direction: row;
   align-items: center;

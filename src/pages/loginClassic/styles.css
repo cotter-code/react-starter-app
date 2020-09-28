@@ -1,0 +1,56 @@
+.LoginPageClassic__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden; */
+  height: 100vh;
+  min-width: 100vw;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(45deg, #4e1eba 15%, #714eef 105%);
+}
+
+.LoginPageClassic__login-container {
+  border-radius: 20px;
+  background-color: white;
+  background-clip: border-box;
+  border: none;
+  box-shadow: 0 10px 20px 10px rgba(17, 6, 41, 0.13);
+  padding: 80px 40px 40px;
+  width: 400px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.LoginPageClassic__login-container .logo {
+  width: 100%;
+}
+.LoginPageClassic__logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.LoginPageClassic__message {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: rgb(22, 24, 26);
+  letter-spacing: -1px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.LoginPageClassic__message-subtitle {
+  font-size: 17px;
+  color: #869191;
+  margin-bottom: 45px;
+  width: 100%;
+}
+
+/* .card-button.Logo__card {
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.06), -4px -4px 8px 0px #6a4adf;
+  background-color: #ffffff;
+} */

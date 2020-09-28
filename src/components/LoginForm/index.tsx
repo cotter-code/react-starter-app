@@ -4,6 +4,7 @@ import CotterContext from "../../contexts/userContext";
 import {
   AUTHENTICATION_METHOD,
   IDENTIFIER_TYPE,
+  Styles,
   VerifySuccess,
 } from "cotter/lib/binder";
 
@@ -12,15 +13,23 @@ interface LoginFormOptions {
   authMethod: AUTHENTICATION_METHOD;
   onSuccess: (response: VerifySuccess) => void;
   onError: (err: any) => void;
+  styles?: Styles;
+  width: number;
+  height: number;
 }
 
 /**
  * ```jsx
  * <LoginForm
- *    type="EMAIL"
  *    authMethod="MAGIC_LINK"
  *    onSuccess={() => navigate("/")}
+ *    type="EMAIL"
  *    onError={(err) => alert(err)}
+ *    styles={{
+ *      input_label: {color: "#ffffff"}
+ *    }}
+ *    width={300}
+ *    height={300}
  * />;
  * ```
  *
@@ -30,12 +39,18 @@ interface LoginFormOptions {
 function LoginForm({
   onSuccess,
   onError,
+  styles,
   type = IDENTIFIER_TYPE.EMAIL,
   authMethod = AUTHENTICATION_METHOD.MAGIC_LINK,
+  width = 300,
+  height = 300,
 }: LoginFormOptions) {
   const { cotter } = useContext(CotterContext);
   useEffect(() => {
     if (cotter) {
+      if (styles) {
+        cotter.config.Styles = styles;
+      }
       const cotterMethod =
         authMethod === AUTHENTICATION_METHOD.MAGIC_LINK
           ? cotter.signInWithLink()
@@ -48,9 +63,12 @@ function LoginForm({
 
       cotterType.then((resp) => onSuccess(resp)).catch((err) => onError(err));
     }
-  }, [cotter, onSuccess, onError, authMethod, type]);
+  }, [cotter, onSuccess, onError, authMethod, type, styles]);
   return (
-    <div id="cotter-form-container" style={{ width: 300, height: 300 }}></div>
+    <div
+      id="cotter-form-container"
+      style={{ width: width, height: height }}
+    ></div>
   );
 }
 

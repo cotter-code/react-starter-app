@@ -1,15 +1,16 @@
-.LoginPage__columns {
+.LoginPageGift__columns {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   font-family: "Inter", sans-serif;
+  background-color: rgb(242, 244, 248);
 }
 
-.LoginPage__column {
+.LoginPageGift__column {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,23 +18,23 @@
   justify-content: center;
 }
 
-.LoginPage__login-column {
+.LoginPageGift__login-column {
   width: 40%;
 }
 
-.LoginPage__login-container {
+.LoginPageGift__login-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
-.LoginPage__logo {
+.LoginPageGift__logo {
   width: 50px;
   height: 50px;
   margin-bottom: 30px;
 }
 
-.LoginPage__message {
+.LoginPageGift__message {
   font-size: 40px;
   font-weight: 900;
   margin-bottom: 15px;
@@ -42,20 +43,24 @@
   line-height: 1.4;
 }
 
-.LoginPage__message-subtitle {
+.LoginPageGift__message-subtitle {
   font-size: 20px;
   color: #869191;
   margin-bottom: 45px;
 }
 
-.LoginPage__image-column {
-  /* background-color: #e9f0f1; */
+.LoginPageGift__image-column {
   width: 60%;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.LoginPage__image {
-  width: 140%;
-  height: 140%;
+.LoginPageGift__image {
+  height: 80%;
   object-fit: cover;
+}
+
+.LoginPageGift__LoginForm {
+  margin-left: -20px;
 }
