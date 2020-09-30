@@ -1,4 +1,4 @@
-.LoginPageGift__columns {
+.LoginPage__columns {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,7 +10,7 @@
   background-color: rgb(242, 244, 248);
 }
 
-.LoginPageGift__column {
+.LoginPage__column {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,23 +18,23 @@
   justify-content: center;
 }
 
-.LoginPageGift__login-column {
+.LoginPage__login-column {
   width: 40%;
 }
 
-.LoginPageGift__login-container {
+.LoginPage__login-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  width: 350px;
 }
-.LoginPageGift__logo {
-  width: 50px;
-  height: 50px;
+.LoginPage__logo {
+  height: 60px;
   margin-bottom: 30px;
 }
 
-.LoginPageGift__message {
+.LoginPage__message {
   font-size: 40px;
   font-weight: 900;
   margin-bottom: 15px;
@@ -43,24 +43,48 @@
   line-height: 1.4;
 }
 
-.LoginPageGift__message-subtitle {
+.LoginPage__message-subtitle {
   font-size: 20px;
   color: #869191;
   margin-bottom: 45px;
 }
 
-.LoginPageGift__image-column {
+.LoginPage__image-column {
   width: 60%;
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.LoginPageGift__image {
+.LoginPage__image {
   height: 80%;
   object-fit: cover;
 }
 
-.LoginPageGift__LoginForm {
+.LoginPage__LoginForm {
   margin-left: -20px;
+}
+
+.LoginPage__switch-login {
+  font-size: 13px;
+  padding-top: 20px;
+}
+.LoginPage__switch-login span {
+  color: #8650fa;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.LoginPage__component {
+  transition: all 0.3s;
+  background-color: rgb(242, 244, 248);
+  visibility: hidden;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+}
+.LoginPage__component-active {
+  visibility: visible;
+  height: 500px;
+  opacity: 1;
 }

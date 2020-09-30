@@ -1,5 +1,6 @@
 import Cotter from "cotter";
 import { CotterAccessToken } from "cotter-token-js";
+import { Config } from "cotter/lib/binder";
 import User from "cotter/lib/models/User";
 import { createContext } from "react";
 
@@ -12,11 +13,15 @@ export interface CotterContextInterface {
   // Loading window object
   isLoading: boolean;
   // Cotter object
-  cotter?: Cotter;
+  getCotter?: (config?: Config) => Cotter;
   // Currently logged-in user
   user?: User;
+  // Api Key ID
+  apiKeyID: string;
   // Log out
   logout: (logoutPath?: String) => Promise<void>;
+  // checkLoggedIn
+  checkLoggedIn: () => Promise<void>;
   // getAccessToken
   getAccessToken: () => Promise<CotterAccessToken | null>;
 }
@@ -33,7 +38,10 @@ export const initialContext: CotterContextInterface = {
   // In SSR mode the library will never check the session, so loading should be initialised as false
   isLoading: typeof window !== "undefined",
   logout: stub,
+  getCotter: stub,
   getAccessToken: stub,
+  checkLoggedIn: stub,
+  apiKeyID: "",
 };
 
 /**

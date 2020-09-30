@@ -11,7 +11,6 @@ export interface CotterProviderOptions extends Config {
    */
   children?: React.ReactNode;
   apiKeyID: string;
-  config?: Config;
 }
 
 /**
@@ -26,34 +25,33 @@ export interface CotterProviderOptions extends Config {
  * Provides the CotterContext to its child components.
  */
 const CotterProvider = (opts: CotterProviderOptions) => {
-  let { children, apiKeyID, config } = opts;
+  let { children, apiKeyID } = opts;
   const [loggedIn, setloggedIn] = useState(false);
   const [loading, setloading] = useState(true);
-  const [cotter, setcotter] = useState<Cotter | undefined>(undefined);
   const [user, setuser] = useState<User | undefined>(undefined);
+
+  const getCotter = (config?: Config) => {
+    if (config && config.ApiKeyID) {
+      const c = new Cotter(config);
+      return c;
+    } else {
+      const c = new Cotter(apiKeyID);
+      return c;
+    }
+  };
+
   useEffect(() => {
     if (apiKeyID) {
-      if (config && config.ApiKeyID) {
-        const c = new Cotter(config);
-        setcotter(c);
-      } else {
-        const c = new Cotter(apiKeyID);
-        setcotter(c);
-      }
+      checkLoggedIn();
     }
-  }, [apiKeyID, config]);
+  }, [apiKeyID]);
 
-  useEffect(() => {
-    if (cotter) {
-      checkLoggedIn(cotter);
-    }
-  }, [cotter]);
-
-  const checkLoggedIn = async (cot: Cotter) => {
-    const accessToken = await cot.tokenHandler.getAccessToken();
+  const checkLoggedIn = async () => {
+    const cotter = getCotter();
+    const accessToken = await cotter.tokenHandler.getAccessToken();
     if (accessToken && accessToken.token?.length > 0) {
       setloggedIn(true);
-      const usr = cot.getLoggedInUser();
+      const usr = cotter.getLoggedInUser();
       setuser(usr);
     } else {
       setloggedIn(false);
@@ -63,23 +61,25 @@ const CotterProvider = (opts: CotterProviderOptions) => {
   };
 
   const getAccessToken = async (): Promise<CotterAccessToken | null> => {
-    if (cotter) {
+    if (apiKeyID) {
+      const cotter = getCotter();
       const accessToken = await cotter.tokenHandler.getAccessToken();
       return accessToken;
     } else {
       throw new Error(
-        "Cotter is undefined, you may forgot to wrap your component in <CotterProvider>"
+        "ApiKeyID is undefined, you may forgot to wrap your component in <CotterProvider>"
       );
     }
   };
   const logout = async (): Promise<void> => {
-    if (cotter) {
+    if (apiKeyID) {
+      const cotter = getCotter();
       await cotter.logOut();
       setloggedIn(false);
       setuser(undefined);
     } else {
       throw new Error(
-        "Cotter is undefined, you may forgot to wrap your component in <CotterProvider>"
+        "ApiKeyID is undefined, you may forgot to wrap your component in <CotterProvider>"
       );
     }
   };
@@ -87,10 +87,12 @@ const CotterProvider = (opts: CotterProviderOptions) => {
   return (
     <CotterContext.Provider
       value={{
+        checkLoggedIn: checkLoggedIn,
         isLoggedIn: loggedIn,
         isLoading: typeof window === "undefined" || loading,
-        cotter: cotter,
+        getCotter: getCotter,
         user: user,
+        apiKeyID: apiKeyID,
         logout: logout,
         getAccessToken: getAccessToken,
       }}

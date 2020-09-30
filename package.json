@@ -8,7 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/reach__router": "^1.3.6",
-    "cotter": "0.3.21-beta.0",
+    "cotter": "0.3.22-beta.0",
     "cotter-token-js": "^0.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

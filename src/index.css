@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.card {
+  border-radius: 10px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none !important;
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+}
+
+.card-button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 25px;
+  width: fit-content;
+  margin: 0px;
+  border-radius: 8px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.06), -4px -4px 8px 0px #fff;
+  color: #000000;
+}
+.card-button a {
+  text-decoration: none !important;
+  color: #000000 !important;
+}
+
+.inset-button {
+  box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+    inset -3px -3px 6px 0px #fff;
+  border-radius: 10px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  padding: 10px 25px;
+  font-size: 12px;
+}

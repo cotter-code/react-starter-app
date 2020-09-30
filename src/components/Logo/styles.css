@@ -7,13 +7,6 @@
 .Logo__container a {
   text-decoration: none;
 }
-.card-button {
-  border-radius: 8px;
-  background-color: rgb(242, 244, 248);
-  background-clip: border-box;
-  border: none;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.06), -4px -4px 8px 0px #fff;
-}
 
 .Logo__card {
   display: flex;
@@ -22,6 +15,7 @@
   justify-content: center;
   height: 54px;
   width: 140px;
+  box-sizing: border-box;
 }
 
 .Logo__item {
@@ -31,6 +25,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+}
+.Logo__card-menu {
+  padding: 0px;
 }
 
 .Logo__logo {

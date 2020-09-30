@@ -1,0 +1,40 @@
+.Navbar__container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: rgb(242, 244, 248);
+  padding: 0px 40px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  height: 80px;
+  color: #000000;
+}
+.Navbar__container-item {
+  padding: 0px 20px;
+  cursor: pointer;
+}
+
+.Navbar__container-item a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.Navbar__card-button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 25px;
+  width: fit-content;
+  color: #000000;
+  border-radius: 10px;
+  background-color: rgb(242, 244, 248);
+  background-clip: border-box;
+  border: none;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.06), -4px -4px 8px 0px #fff;
+}
