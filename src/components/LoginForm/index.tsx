@@ -70,7 +70,7 @@ function LoginForm({
 
   useEffect(() => {
     console.log(containerID);
-    if (getCotter && containerID && !loaded) {
+    if (getCotter && apiKeyID?.length >= 36 && containerID && !loaded) {
       const config: Config = {
         ApiKeyID: apiKeyID,
         Type: type,
@@ -124,7 +124,20 @@ function LoginForm({
     apiKeyID,
     checkLoggedIn,
   ]);
-  return <div id={containerID} style={{ width: width, height: height }}></div>;
+  return (
+    <>
+      {(!apiKeyID || apiKeyID.length < 36) && (
+        <div style={{ padding: "0px 20px" }}>
+          You're missing the API KEY ID, you need to pass it to{" "}
+          <code>CotterProvider</code>
+        </div>
+      )}
+      <div
+        id={containerID}
+        style={{ width: width, height: apiKeyID?.length >= 36 ? height : 10 }}
+      ></div>
+    </>
+  );
 }
 
 LoginForm.propTypes = {
