@@ -1,6 +1,8 @@
-# Cotter's React Starter App
+# Cotter + Brev React Starter App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), with additional templates:
+
+[Build a full app with authentication in ~10 minutes](https://docs.brev.dev/#/auth?id=build-a-full-app-with-user-authentication)
 
 - Pre-built Login Pages using [Cotter](https://www.cotter.app)
 - Authentication State Management
