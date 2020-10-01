@@ -2,6 +2,7 @@ import React from "react";
 import { Router } from "@reach/router";
 import HomePage from "../getstarted"; // 👈  Change the import to home
 import LoginPage from "../login";
+import Dashboard from "../dashboard";
 import CotterProvider from "../../contexts/userProvider";
 import { COTTER_API_KEY_ID } from "../../apiKeys";
 import Logo from "../../components/Logo";
@@ -14,6 +15,7 @@ function App() {
       <Logo />
       <Router>
         <HomePage path="/" />
+        <Dashboard path="/dashboard" />
         <LoginPage path="/login" />
       </Router>
     </CotterProvider>
