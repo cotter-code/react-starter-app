@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { COTTER_API_KEY_ID } from "../../apiKeys";
 import CotterContext from "../../contexts/userContext";
 import "./styles.css";
+import agent from "../../agent";
 
 function GetStartedCard({ step, stepNumber, title, onToggleStep, children }) {
   const open = step === stepNumber;
@@ -33,6 +34,12 @@ function GetStartedPage() {
   const { isLoading, isLoggedIn, user } = useContext(CotterContext);
   const [step, setstep] = useState(0);
   const [stepUpdated, setstepUpdated] = useState(false);
+  const [brevSetupSuccess, setBrevSetupSuccess] = useState(false);
+  const [slug, setSlug] = useState(agent.slug);
+
+  useEffect(() => {
+    pingBrev();
+  }, [slug]);
 
   useEffect(() => {
     if (
@@ -48,6 +55,15 @@ function GetStartedPage() {
       }
     }
   }, [isLoading, isLoggedIn, step]);
+
+  const pingBrev = async () => {
+    try {
+      await agent.ping.get();
+      setBrevSetupSuccess(true);
+    } catch (error) {
+      setBrevSetupSuccess(false);
+    }
+  };
 
   const toggleStep = (clickedStep) => {
     if (step === clickedStep) {
@@ -175,10 +191,7 @@ function GetStartedPage() {
               className="success-tag GetStartedCard__success-tag"
               onClick={() => navigate("/dashboard")}
             >
-              You are logged in! Go to the dashboard
-              <span className="icon-success GetStartedCard__icon-success">
-                →
-              </span>
+              You are logged in!
             </div>
           )}
         </GetStartedCard>
@@ -186,6 +199,56 @@ function GetStartedPage() {
         <GetStartedCard
           step={step}
           stepNumber={3}
+          title="Use Brev to quickly and scalably store users!"
+          onToggleStep={toggleStep}
+        >
+          <div className="GetStartedCard__subtitle">
+            Set up Brev to get a backend and database to store users.
+            <a
+              href="https://app.brev.dev/ivyhacks"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Create your Brev Account
+            </a>{" "}
+            <br />
+            <br />
+            Then{" "}
+            <a
+              href="https://docs.brev.dev/#/auth?id=build-a-full-app-with-user-authentication"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              follow this quick tutorial
+            </a>{" "}
+            to handle Cotter auth and store users.
+            <br />
+            <br />
+            Add your Brev project slug to agent.ts to hook up the backend.
+            That's it!
+          </div>
+          <div className="inset-button GetStartedCard__inset-button">
+            <pre>
+              <code>
+                {brevSetupSuccess
+                  ? "Your Brev project is hooked up!"
+                  : `add your Brev project slug on line 8 of agent.ts`}
+              </code>
+            </pre>
+          </div>
+          {brevSetupSuccess && (
+            <div
+              className="success-tag GetStartedCard__success-tag"
+              onClick={() => navigate("/dashboard")}
+            >
+              Brev is hooked up!
+            </div>
+          )}
+        </GetStartedCard>
+
+        <GetStartedCard
+          step={step}
+          stepNumber={4}
           title="Go to the Dashboard to check how to call API endpoints"
           onToggleStep={toggleStep}
         >
@@ -201,7 +264,7 @@ function GetStartedPage() {
 
         <GetStartedCard
           step={step}
-          stepNumber={4}
+          stepNumber={5}
           title="Update the import for the Home Page"
           onToggleStep={toggleStep}
         >

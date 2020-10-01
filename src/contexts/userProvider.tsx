@@ -4,6 +4,7 @@ import { Config } from "cotter/lib/binder";
 import User from "cotter/lib/models/User";
 import CotterContext from "./userContext";
 import { CotterAccessToken } from "cotter-token-js";
+import agent from "../agent";
 
 export interface CotterProviderOptions extends Config {
   /**
@@ -46,6 +47,11 @@ const CotterProvider = (opts: CotterProviderOptions) => {
     }
   }, [apiKeyID]);
 
+  const getCotterAccessToken = async () => {
+    const token = await getAccessToken();
+    return token?.token || null;
+  };
+
   const checkLoggedIn = async () => {
     const cotter = getCotter();
     const accessToken = await cotter.tokenHandler.getAccessToken();
@@ -53,6 +59,8 @@ const CotterProvider = (opts: CotterProviderOptions) => {
       setloggedIn(true);
       const usr = cotter.getLoggedInUser();
       setuser(usr);
+
+      agent.configRequestAuth(getCotterAccessToken);
     } else {
       setloggedIn(false);
       setuser(undefined);

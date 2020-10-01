@@ -1,5 +1,6 @@
 import { Link } from "@reach/router";
 import React, { useState } from "react";
+import agent from "../../agent";
 import LoginForm from "../../components/LoginForm";
 import "./styles.css";
 
@@ -17,39 +18,32 @@ function LoginPage() {
 
   // SIGNUP HANDLERS
   const onSignupBegin = async (payload) => {
-    try {
-      const url = "<BREV_CHECK_EMAIL_URL>";
-      const resp = await fetch(
-        `${url}?email=${encodeURIComponent(payload.identifier)}`
-      );
-      const response = await resp.json();
-      if (resp.status !== 200) {
-        return "Something went wrong";
-      }
-      if (response.exists) {
-        return "User already exists";
-      }
-    } catch (e) {
-      return "Something went wrong";
-    }
+    console.log(payload);
+    // Note: It's a good idea to uncomment the below and create an endpoint to verify the user doesn't already exist
+
+    // try {
+    //   const url = "<BREV_CHECK_EMAIL_URL>";
+    //   const resp = await fetch(
+    //     `${url}?email=${encodeURIComponent(payload.identifier)}`
+    //   );
+    //   const response = await resp.json();
+    //   if (resp.status !== 200) {
+    //     return "Something went wrong";
+    //   }
+    //   if (response.exists) {
+    //     return "User already exists";
+    //   }
+    // } catch (e) {
+    //   return "Something went wrong";
+    // }
     return null;
   };
   const onSignupSuccess = async (payload) => {
-    alert("SIGNUP SUCCESS");
+    console.log("SIGNUP SUCCESS");
+
     try {
-      const url = "<BREV_SIGNUP_URL>";
-      const resp = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-      const response = await resp.json();
+      let response = await agent.Users.post(payload);
       console.log(response);
-      if (resp.status !== 200) {
-        onLoginError(response);
-      }
     } catch (e) {
       onLoginError(e);
     }
