@@ -2,9 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), with additional templates:
 
-- Pre-built Login Page Templates
+- Pre-built Login Pages using [Cotter](https://www.cotter.app)
 - Authentication State Management
 - User Management
+- Backend and database using [Brev](https://brev.dev)
 - Step-by-step guide
 
 <img width="1398" alt="Cotter's React Starter Template" src="https://user-images.githubusercontent.com/20483939/94357815-eb4ce180-0050-11eb-8467-34388b43deb6.png">
