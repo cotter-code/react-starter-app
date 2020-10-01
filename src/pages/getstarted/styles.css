@@ -169,3 +169,6 @@ strong {
   text-decoration: none !important;
   color: #000000 !important;
 }
+.GetStartedCard__subtitle-margin {
+  margin-top: 20px;
+}

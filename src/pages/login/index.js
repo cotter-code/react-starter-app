@@ -1,4 +1,4 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import React, { useState } from "react";
 import agent from "../../agent";
 import LoginForm from "../../components/LoginForm";
@@ -9,10 +9,11 @@ function LoginPage() {
 
   // LOGIN HANDLERS
   const onLoginSuccess = async (payload) => {
-    alert("LOGIN SUCCESS");
+    alert("Login Success! Connect your backend with brev to test whether a user exists or not.");
+    navigate('/')
   };
   const onLoginError = (err) => {
-    alert("LOGIN ERROR");
+    alert("Login Error! See the console log for more info.");
     console.log(err);
   };
 
@@ -39,17 +40,18 @@ function LoginPage() {
     return null;
   };
   const onSignupSuccess = async (payload) => {
-    console.log("SIGNUP SUCCESS");
+    console.log("Signup Success");
 
     try {
       let response = await agent.Users.post(payload);
       console.log(response);
+      navigate('/dashboard');
     } catch (e) {
       onLoginError(e);
     }
   };
   const onSignupError = (err) => {
-    alert("SIGNUP ERROR");
+    alert("Signup Error. Check the console log for more info.");
     console.log(err);
   };
   return (
@@ -70,9 +72,8 @@ function LoginPage() {
 
           {/* SIGNUP COMPONENT */}
           <div
-            className={`LoginPage__component ${
-              !login && "LoginPage__component-active"
-            }`}
+            className={`LoginPage__component ${!login && "LoginPage__component-active"
+              }`}
           >
             <div className="LoginPage__message">Sign Up</div>
             <div className="LoginPage__message-subtitle">
@@ -105,9 +106,8 @@ function LoginPage() {
 
           {/*  LOGIN COMPONENT  */}
           <div
-            className={`LoginPage__component ${
-              login && "LoginPage__component-active"
-            }`}
+            className={`LoginPage__component ${login && "LoginPage__component-active"
+              }`}
           >
             <div className="LoginPage__message">Login</div>
             <div className="LoginPage__message-subtitle">

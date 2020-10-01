@@ -17,9 +17,8 @@ function GetStartedCard({ step, stepNumber, title, onToggleStep, children }) {
   return (
     <div className={`GetStartedCard__card ${open && "card"}`}>
       <div
-        className={`GetStartedCard__title ${
-          open && "GetStartedCard__title-open"
-        }`}
+        className={`GetStartedCard__title ${open && "GetStartedCard__title-open"
+          }`}
         onClick={onClick}
       >
         <div className="GetStartedCard__title-number">{stepNumber}</div>
@@ -109,7 +108,7 @@ function GetStartedPage() {
       </div>
       <div className="GetStarted__tutorial">
         <div className="GetStarted__tutorial-subtitle">
-          Quickly Get Started with this Template in 4 Steps
+          Quickly Get Started with this Template in 5 Steps
         </div>
         <GetStartedCard
           step={step}
@@ -193,6 +192,8 @@ function GetStartedPage() {
             >
               You are logged in!
             </div>
+          )}
+          {isLoggedIn && (<div className="GetStartedCard__subtitle GetStartedCard__subtitle-margin">Users who verified their email are automatically created as a user in Cotter. Use Brev to store the users in your own server.</div>
           )}
         </GetStartedCard>
 
