@@ -16,6 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Getting started
 
 **Run the project**
+
 To run the project:
 ```bash
 npm install
@@ -31,10 +32,16 @@ yarn start
 and open `http://localhost:3000`
 
 **Copy your Cotter API KEY ID**
+
 Go to [Cotter's Dashboard](https://dev.cotter.app), create a project, and copy your API KEY ID.
 Then paste your API Key ID to [`src/apiKeys.js`](https://github.com/cotter-code/react-starter-app/blob/master/src/apiKeys.js).
 
-## Using `CotterProvider` and the `LoginForm`
+**Follow the tutorial on the home page**
+
+Try logging-in and then add API Endpoints using Brev [following this guide](https://docs.brev.dev/#/auth?id=build-a-full-app-with-user-authentication).
+
+
+## Available Functions
 As you can see, we've already included [`CotterProvider`](https://github.com/cotter-code/react-starter-app/blob/master/src/pages/_app/index.js#L13) for authentication state management. It's already included in `pages/_app` to wrap over your root component.
 - [Adding the `LoginForm`](#adding-the-loginform)
 - [Using the `CotterProvider`](#using-the-cotterprovider)
