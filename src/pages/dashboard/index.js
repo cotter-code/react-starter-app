@@ -49,7 +49,7 @@ function Dashboard() {
           <ol>
             <li>
               <a
-                href="https://app.brev.dev/ivyhacks"
+                href="https://app.brev.dev/alphasignup?utm_source=reactstarter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
