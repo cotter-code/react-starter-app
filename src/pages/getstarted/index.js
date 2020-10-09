@@ -17,8 +17,9 @@ function GetStartedCard({ step, stepNumber, title, onToggleStep, children }) {
   return (
     <div className={`GetStartedCard__card ${open && "card"}`}>
       <div
-        className={`GetStartedCard__title ${open && "GetStartedCard__title-open"
-          }`}
+        className={`GetStartedCard__title ${
+          open && "GetStartedCard__title-open"
+        }`}
         onClick={onClick}
       >
         <div className="GetStartedCard__title-number">{stepNumber}</div>
@@ -193,7 +194,11 @@ function GetStartedPage() {
               You are logged in!
             </div>
           )}
-          {isLoggedIn && (<div className="GetStartedCard__subtitle GetStartedCard__subtitle-margin">Users who verified their email are automatically created as a user in Cotter. Use Brev to store the users in your own server.</div>
+          {isLoggedIn && (
+            <div className="GetStartedCard__subtitle GetStartedCard__subtitle-margin">
+              Users who verified their email are automatically created as a user
+              in Cotter. Use Brev to store the users in your own server.
+            </div>
           )}
         </GetStartedCard>
 
@@ -206,7 +211,7 @@ function GetStartedPage() {
           <div className="GetStartedCard__subtitle">
             Set up Brev to get a backend and database to store users.
             <a
-              href="https://app.brev.dev/ivyhacks"
+              href="https://app.brev.dev/alphasignup?utm_source=reactstarter"
               target="_blank"
               rel="noopener noreferrer"
             >
